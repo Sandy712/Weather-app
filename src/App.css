@@ -36,18 +36,3 @@
     transform: rotate(360deg);
   }
 }
-.container .card{
-  display: inline-block;
-  left: 0px;
-  width: 550px;
-  height: 100%;
-  padding: 15px;
-}
-
-.container{
-  display: inline-block;
-  padding: 15px;
-  vertical-align: left;
-  width: 500px;
-  height: 100%;
-}
