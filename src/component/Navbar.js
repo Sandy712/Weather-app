@@ -7,27 +7,27 @@ function Navbar() {
       <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <div className="container-fluid">
-    <link className="navbar-brand" to="#"> Mausam.UI<img className="weather-icon" src={logo} alt="" /> </link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
+    <a  className="navbar-brand" href="/"> Mausam.UI<img className="weather-icon" src={logo} alt="" /> </a >
+    <buthrefn className="navbar-hrefggler" type="buthrefn" data-bs-hrefggle="collapse" data-bs-target="/navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="hrefggle navigation">
+      <span className="navbar-hrefggler-icon"></span>
+    </buthrefn>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul className="navbar-nav me-auhref mb-2 mb-lg-0">
         <li className="nav-item">
-          <link className="nav-link active" aria-current="page" to="#">Map</link>
+          <a  className="nav-a  active" aria-current="page" href="/">Map</a >
         </li>
         <li className="nav-item">
-          <link className="nav-link" to="#">Link</link>
+          <a  className="nav-a " href="/">a </a >
         </li>
         <li className="nav-item dropdown">
-          <link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a  className="nav-a  dropdown-hrefggle" href="/" id="navbarDropdown" role="buthrefn" data-bs-hrefggle="dropdown" aria-expanded="false">
             Dropdown
-          </link>
+          </a >
           <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><link className="dropdown-item" to="#">Action</link></li>
-            <li><link className="dropdown-item" to="#">Another action</link></li>
+            <li><a className="dropdown-item" href="/">Action</a></li>
+            <li><a className="dropdown-item" href="/">Another action</a></li>
             <li><hr className="dropdown-divider"/></li>
-            <li><link className="dropdown-item" to="#">Something else here</link></li>
+            <li><a  className="dropdown-item" href="/">Something else here</a ></li>
           </ul>
         </li>
          

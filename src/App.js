@@ -8,7 +8,7 @@ function App() {
     <>
       <div><Navbar/></div>
       <div><Main/></div>
-      {/* <div><WeatherMap/></div> */}
+      <div><WeatherMap/></div>
     </>
   );
 }
