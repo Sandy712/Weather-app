@@ -1,20 +1,25 @@
 import axios from "axios";
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { RiSearchLine } from 'react-icons/ri';
+import humi from './images/humidity.png';
+import windi from './images/wind.png';
+import globe from './images/glob.png';
+// import logo from './Weather-app/src/component/images/search-icon.png'
 
 
 export default function Main() {
-  const apikey = "146df592b88af707529963a10994a183"
+  const apikey = "68728417b823fdcc4f64b58984b566f1"
 
   const [city, setCity] = useState("");
   const [temp, setTemp] = useState("");
   const [desc, setDesc] = useState("");
-  const [Icon,setIcon] = useState("");
+  const [Icon, setIcon] = useState("");
   const [hum, setHum] = useState("");
   const [name, setName] = useState("");
-  const [Country,setCountry]=useState("");
-  const [wind,setwind] =useState("");
+  const [Country, setCountry] = useState("");
+  const [wind, setwind] = useState("");
   const [isDataFetched, setIsDataFetched] = useState(false);
-  
+
   const currentDate = new Date().toString().slice(0, 25);
 
 
@@ -32,10 +37,10 @@ export default function Main() {
       setIcon(onlinedata.weather[0].icon);
       setCountry(onlinedata.sys.country);
       setwind(onlinedata.wind.speed);
-      
+
       setIsDataFetched(true);
 
-      
+
       console.log(onlinedata)
     } catch (error) {
       // Handle any errors
@@ -60,12 +65,12 @@ export default function Main() {
         setwind(onlinedata.wind.speed);
 
         console.log(onlinedata);
-      }catch (error) {
-          // Handle any errors
+      } catch (error) {
+        // Handle any errors
         console.error(error);
         alert("Please enter a valid location");
-        }
       }
+    }
   };
 
   useEffect(() => {
@@ -74,31 +79,50 @@ export default function Main() {
 
 
   return (
-    <div className="container" style={{ backgroundColor: "green"}}>
-      <div className="container_app">
-        <form onSubmit={fetchData}   className="app__search">
-          <input
-            className="app__input"
-            type="text"
-            placeholder="Insert City Name"
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </form>
-        <h2 className="main_title" style={{ backgroundColor: "lightblue" }}>{name} Weather</h2>
-        <h1 className="app__temp">{temp}°C</h1>
+    <div className="container d-flex align-items-center justify-content-center">
+      <div className="container_app ">
+        <div className="Search">
+          <form onSubmit={fetchData} className="search-bar" >
+            <input
+              className="app__input"
+              type="text"
+              placeholder="Enter City Name"
+              onChange={(e) => setCity(e.target.value)}
+              spellCheck='false'
+            />
+            <button className="button"><RiSearchLine className="search-icon" /></button>
+          </form>
+        </div>
+           
+
+
+        <div className="Title">
+          <h2 className="main_title" >{(name).toUpperCase()} Weather</h2>
+          <h1 className="app__temp">{temp}°C</h1>
+        </div>
         <div className="app_desc">
-          <img className="app_image" src={`http://openweathermap.org/img/wn/${Icon}.png`} alt="desc"/>
-          <h3>{desc}</h3> 
         </div>
 
-        <div className="app__country">
-          <h4 className="app__hum">Humidity: {hum} </h4>
+      <div className="grid-container">
+
+        <div className="item item1">
+          <img className="app_image" src={`http://openweathermap.org/img/wn/${Icon}.png`} alt="desc" />
+          <h3>{desc}</h3>
+        </div>
+        <div className="item item2" >
+            <img src={humi} alt="" />
+          <h4 className="app__hum">Humidity: {hum}%</h4>
+        </div>
+        <div className="item item3">
+          <img src={globe} alt="" />
           <h4 className="app__count">Country: {Country}</h4>
         </div>
-        <div className="app__windspeed">
-          <h4 className="app__wind">Wind Speed: {wind} m/s</h4>
-          <h4 className="app__date">{currentDate}</h4>
+        <div className="item item4">
+          <img src={windi} alt="" />
+          <h4 className="app__wind">Wind Speed: {Math.trunc(wind*3.6)} km/h</h4>
         </div>
+      </div>  
+          {/* <h4 className="app__date">{currentDate}</h4> */}
       </div>
     </div>
   );

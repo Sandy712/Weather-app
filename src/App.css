@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   /* background-color: #222;  */
+}
+.container_app{
+    background-color: red;
+    width: 90%;
+    max-width: 470px;
+    background: linear-gradient(135deg, #00feba,#5b548a);
+    color: #fff;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    width: auto;
+    /* position: fixed;
+    left: 50%;
+    top: 50%; */
+    /* transform: translate(-53%, -42%); */
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.app__input{
+     border: 0;
+     outline: 0;
+     color: #555;
+     background: #ebfffc;
+     padding: 10px 25px;
+     height: 40px;
+     border-radius: 30px;
+     flex: 1;
+     margin-right: 16px;
+     font: 18px;
+      
+
+    
+}
+.search-icon{
+    font-size: 1.5rem;
+  margin-right: 0.5rem;
+  height: 28px;
+  width: 29px;
+  color: white;
+}
+.button{
+    background: transparent;
+    outline: 0;
+    border: 0;
+}
+.search-bar{
+    display: flex;
+    flex: wrap;
+}
+.Title{
+    margin-top: 0.7rem;
+}
+.Title .app__temp{
+    font-size: 35px;
+}
+.Title .main_title{
+    font-weight: bold;
+    font-size: 40px;
+    text-shadow: 4px -1px 1px rgb(66 101 170 / 60%);
+}
+.weather-icon{
+    width: 73px;
+    height: 62px;
+}
+.container-fluid
+{
+    background-color: #97b5d5;
+}
+.navbar{
+    margin: 0;
+    padding: 0;
+}
+.navbar-brand{
+    font-size: 29px;
+    font-family: 'Kanit', sans-serif;
+    color: #fff;
+}
+/* .navbar-collapse{
+    padding: 0px 10px 0px 15px;
+} */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+    grid-template-rows: 1fr 1fr; /* Two rows with equal height */
+    gap: 10px; /* Gap between grid items */
+    margin-top: 36px;
+  }
+.item2 img{
+    height: 24px;
+    width: 42px;
+}
+.item4 img{
+    height: 33px;
+    width: 34px;
+}
+.item3 img{
+    height: 33px;
+    width: 34px;
+}
+.app_image{
+    height: 33px;
+    width: 34px;
+}
