@@ -8,7 +8,7 @@ import globe from './images/glob.png';
 
 
 export default function Main() {
-  const apikey = "68728417b823fdcc4f64b58984b566f1"
+  const apikey = "146df592b88af707529963a10994a183"
 
   const [city, setCity] = useState("");
   const [temp, setTemp] = useState("");
@@ -20,17 +20,7 @@ export default function Main() {
   const [wind, setwind] = useState("");
   const [isDataFetched, setIsDataFetched] = useState(false);
 
-  const date = new Date()
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-
-  let currentDate = `${day}-${month}-${year}`;
-
-  
-
-
-
+  const currentDate = new Date().toString().slice(0, 25);
 
 
   const fetchData = async (e) => {
@@ -74,7 +64,7 @@ export default function Main() {
         setCountry(onlinedata.sys.country);
         setwind(onlinedata.wind.speed);
 
-        console.log(onlinedata);
+        // console.log(onlinedata);
       } catch (error) {
         // Handle any errors
         console.error(error);
@@ -126,7 +116,7 @@ export default function Main() {
         </div>
         <div className="item item3">
           <img src={globe} alt="" />
-          <h4 className="app__count">Country: {Country}</h4>
+          <h4 className="app__count">Country: {Country} </h4>
         </div>
         <div className="item item4">
           <img src={windi} alt="" />
