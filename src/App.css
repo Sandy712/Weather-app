@@ -3,24 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
-   /* background-color: #222;  */
+    background:linear-gradient(to bottom, #010203, #066298, #008793, #8faea1, #888e79) no-repeat center center/cover;;
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
 }
+
 .container_app{
     background-color: red;
-    width: 90%;
+    width: 100%;
     max-width: 470px;
-    background: linear-gradient(135deg, #00feba,#5b548a);
+    background: linear-gradient(152deg, #4fb3b3,#070418);
     color: #fff;
     margin: 20px;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
     width: auto;
-    /* position: fixed;
-    left: 50%;
-    top: 50%; */
-    /* transform: translate(-53%, -42%); */
+    
+    
 }
 .search{
     width: 100%;
@@ -64,11 +69,14 @@ body{
 }
 .Title .app__temp{
     font-size: 35px;
+    cursor: context-menu;
 }
 .Title .main_title{
     font-weight: bold;
     font-size: 40px;
     text-shadow: 4px -1px 1px rgb(66 101 170 / 60%);
+    cursor: context-menu;
+    
 }
 .weather-icon{
     width: 73px;
@@ -77,6 +85,7 @@ body{
 .container-fluid
 {
     background-color: #97b5d5;
+    
 }
 .navbar{
     margin: 0;
@@ -87,9 +96,7 @@ body{
     font-family: 'Kanit', sans-serif;
     color: #fff;
 }
-/* .navbar-collapse{
-    padding: 0px 10px 0px 15px;
-} */
+ 
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two columns with equal width */
@@ -100,16 +107,63 @@ body{
 .item2 img{
     height: 24px;
     width: 42px;
+    /* cursor: pointer; */
 }
 .item4 img{
     height: 33px;
     width: 34px;
+    /* cursor: pointer; */
 }
 .item3 img{
     height: 33px;
     width: 34px;
+    /* cursor: pointer; */
 }
 .app_image{
     height: 33px;
     width: 34px;
+    /* cursor: pointer; */
 }
+.nav-attribute{
+    font-weight: bold;
+    /* color: white; */
+    
+}
+
+.nav-item{
+    margin: 0% 2%;
+    display: inline-block;
+    border-radius: 15px;
+    /* padding: ; */
+    color: white;
+    transition: 0.2s;
+    border: 2px solid white;
+}
+.nav-item:hover{
+    box-shadow: 2px 2px #555;
+    background: linear-gradient(rgb(128, 173, 199), rgb(134, 182, 206));
+    /* color: #555; */
+}
+.navbar-brand{
+    color: rgb(110 90 192);
+    transition:  0.3s;
+}
+.navbar-brand:hover{
+    color: rgb(67, 60, 96);
+}
+.date-time{
+    margin-top: 10px;
+}
+.nav-link{
+    text-decoration: none;
+}
+.l-1{
+    border-radius: 13px;
+}
+.descript{
+    text-align: left;
+}
+
+
+
+

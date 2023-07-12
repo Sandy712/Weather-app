@@ -20,7 +20,17 @@ export default function Main() {
   const [wind, setwind] = useState("");
   const [isDataFetched, setIsDataFetched] = useState(false);
 
-  const currentDate = new Date().toString().slice(0, 25);
+  const date = new Date()
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+
+  let currentDate = `${day}-${month}-${year}`;
+
+  
+
+
+
 
 
   const fetchData = async (e) => {
@@ -53,7 +63,7 @@ export default function Main() {
     if (isDataFetched === false || city === "") {
       try {
         const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=Indore&appid=${apikey}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=${apikey}&units=metric`
         );
         const onlinedata = response.data;
         setTemp(onlinedata.main.temp);
@@ -79,8 +89,8 @@ export default function Main() {
 
 
   return (
-    <div className="container d-flex align-items-center justify-content-center">
-      <div className="container_app ">
+    <div className="container d-flex align-items-center justify-content-center" >
+      <div className="container_app" style={{cursor:'auto'}}>
         <div className="Search">
           <form onSubmit={fetchData} className="search-bar" >
             <input
@@ -89,6 +99,7 @@ export default function Main() {
               placeholder="Enter City Name"
               onChange={(e) => setCity(e.target.value)}
               spellCheck='false'
+              
             />
             <button className="button"><RiSearchLine className="search-icon" /></button>
           </form>
@@ -98,7 +109,7 @@ export default function Main() {
 
         <div className="Title">
           <h2 className="main_title" >{(name).toUpperCase()} Weather</h2>
-          <h1 className="app__temp">{temp}°C</h1>
+          <h1 className="app__temp">{Math.trunc(temp)}°C</h1>
         </div>
         <div className="app_desc">
         </div>
@@ -107,7 +118,7 @@ export default function Main() {
 
         <div className="item item1">
           <img className="app_image" src={`http://openweathermap.org/img/wn/${Icon}.png`} alt="desc" />
-          <h3>{desc}</h3>
+          <h3 style={{cursor:'auto'}}>{desc}</h3>
         </div>
         <div className="item item2" >
             <img src={humi} alt="" />
@@ -122,8 +133,11 @@ export default function Main() {
           <h4 className="app__wind">Wind Speed: {Math.trunc(wind*3.6)} km/h</h4>
         </div>
       </div>  
-          {/* <h4 className="app__date">{currentDate}</h4> */}
+      <div className="date-time">
+          <h4 className="app__date">Date: {currentDate}</h4>
+      </div>
       </div>
     </div>
+           
   );
 }

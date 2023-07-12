@@ -1,98 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import axios from 'axios';
+import React from 'react'
 
-// Import Leaflet CSS
-import 'leaflet/dist/leaflet.css';
-
-// Fix Leaflet marker icon issue
-import icon from 'leaflet/dist/images/marker-icon.png';
-import iconShadow from 'leaflet/dist/images/marker-shadow.png';
-
-let DefaultIcon = L.icon({
-  iconUrl: icon,
-  shadowUrl: iconShadow,
-});
-
-L.Marker.prototype.options.icon = DefaultIcon;
-
-const WeatherMap = () => {
-  const [weatherData, setWeatherData] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('India');
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
-        const API_KEY = 'YOUR_API_KEY';
-
-        // Fetch real-time weather data from the OpenWeatherMap API based on the search query
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${weatherData?.coord.lat}&lon=${weatherData?.coord.lon}&appid=${API_KEY}`
-        );
-        setWeatherData((prevData) => ({ ...prevData, ...response.data }));
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    if (weatherData) {
-      fetchData();
-    }
-  }, [weatherData]);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchQuery(e.target.elements.search.value);
-  };
-
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      try {
-        // Replace 'YOUR_API_KEY' with your OpenWeatherMap API key
-        const API_KEY = '68728417b823fdcc4f64b58984b566f1';
-
-        // Fetch initial weather data from the OpenWeatherMap API based on the search query
-        const response = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&appid=${API_KEY}`
-        );
-        setWeatherData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchInitialData();
-  }, [searchQuery]);
-
-  if (!weatherData) {
-    return <div>Loading...</div>;
-  }
-
-  const { coord } = weatherData;
-  const { lat, lon } = coord;
-
+const map = () => {
   return (
     <div>
-      <form onSubmit={handleSearch}>
-        <input type="text" name="search" placeholder="Enter a country" />
-        <button type="submit">Search</button>
-      </form>
-      <MapContainer center={[lat, lon]} zoom={6} style={{ height: '400px' }}>
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {weatherData.current && (
-          <Marker position={[lat, lon]}>
-            <Popup>
-              <h3>{weatherData.name}</h3>
-              <p>{weatherData.current.weather[0].description}</p>
-              <p>Temperature: {weatherData.current.temp} K</p>
-            </Popup>
-          </Marker>
-        )}
-      </MapContainer>
+      <>
+        <div className="row w-100 d-flex align-items-center justify-content-center">
+          <div className="col-lg-6 my-4 mx-4 ">
+            <iframe className="w-100 " style={{ height: "400px", allowfullscreen: "", loading: "fast" }}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115681.29592731265!2d-77.47713270775661!3d25.0326996781907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x892f7c99b981dbc9%3A0x2aef01d3485e50d2!2sNassau%2C%20Bahamy!5e0!3m2!1spl!2spl!4v1624445118063!5m2!1spl!2spl"
+            ></iframe>
+          </div>
+        </div>
+      </>
     </div>
-  );
-};
 
-export default WeatherMap;
+  )
+}
+
+export default map
