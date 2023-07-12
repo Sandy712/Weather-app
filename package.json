@@ -1,4 +1,5 @@
 {
+  "homepage": "https://mausamui.github.io/Weather-app",
   "name": "weather-window",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
+    "gh-pages": "^5.0.0",
     "leaflet": "^1.9.4",
     "mdb-react-ui-kit": "^6.1.0",
     "react": "^18.2.0",
@@ -21,6 +23,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
