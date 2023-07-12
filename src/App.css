@@ -163,6 +163,12 @@ body{
 .descript{
     text-align: left;
 }
+@media (min-width: 992px) { 
+    .map{
+        margin-left:400px;
+
+    }
+ }
 
 
 
