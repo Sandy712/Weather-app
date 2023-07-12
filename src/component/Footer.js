@@ -3,10 +3,10 @@ import {
   MDBFooter,
   MDBContainer,
   // MDBIcon,
-  MDBInput,
+  // MDBInput,
   MDBCol,
   MDBRow, 
-  MDBBtn
+  // MDBBtn
 } from 'mdb-react-ui-kit';
 import {RiInstagramFill} from 'react-icons/ri' 
 import {RiTwitterFill} from 'react-icons/ri' 
@@ -101,7 +101,7 @@ export default function App() {
                   +91 9174595317
               </p>
               <p>
-                  +91 78982 87715
+                  +91 7898287715
               </p>
             </MDBCol>
           </MDBRow>
@@ -124,7 +124,7 @@ export default function App() {
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
         © 2023 Copyright:
-        <a className='text-white' href='#'>
+        <a className='text-white' href='/'>
         Mausam.UI.com
         </a>
       </div>

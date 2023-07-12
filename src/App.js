@@ -33,7 +33,7 @@ function App() {
             
            
         </Routes>
-        <div style={{marginTop:'250px'}}><Footer/></div>
+        <div style={{marginTop:'0px'}}><Footer/></div>
     </>
     </Router>
   );
