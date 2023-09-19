@@ -4,7 +4,8 @@ import { RiSearchLine } from 'react-icons/ri';
 import humi from './images/humidity.png';
 import windi from './images/wind.png';
 import globe from './images/glob.png';
-// import logo from './Weather-app/src/component/images/search-icon.png'
+import sunriseico from './images/sunrise.png';
+import sunsetico from './images/sunset.png'
 
 
 export default function Main() {
@@ -22,6 +23,8 @@ export default function Main() {
           Icon: action.payload.Icon,
           Country: action.payload.Country,
           wind: action.payload.wind,
+          sunrise: action.payload.sunrise,
+          sunset: action.payload.sunset,
           isDataFetched: true,
         };
       case "SET_CITY":
@@ -43,14 +46,28 @@ export default function Main() {
     name: "",
     Country: "",
     wind: "",
+    sunrise: "",
+    sunset: "",
     isDataFetched: false,
   };
 
   const currentDate = new Date().toString().slice(0, 25);
 
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { city, temp, desc, Icon, hum, name, Country, wind, isDataFetched } = state;
+  const { city, temp, desc, Icon, hum, name, Country, wind, isDataFetched, sunrise, sunset } = state;
 
+  const formatSunrise = () => {
+    const sunriseDate = new Date(sunrise * 1000);
+    const hours = sunriseDate.getHours().toString().padStart(2, '0'); // Add leading zeros
+    const minutes = sunriseDate.getMinutes().toString().padStart(2, '0'); // Add leading zeros
+    return `${hours}:${minutes}`;
+  };
+  const formatSunset = () => {
+    const sunsetDate = new Date(sunset * 1000);
+    const hours = sunsetDate.getHours().toString().padStart(2, '0'); // Add leading zeros
+    const minutes = sunsetDate.getMinutes().toString().padStart(2, '0'); // Add leading zeros
+    return `${hours}:${minutes}`;
+  };
 
 
   const fetchData = async (e) => {
@@ -70,6 +87,8 @@ export default function Main() {
           Icon: onlinedata.weather[0].icon,
           Country: onlinedata.sys.country,
           wind: onlinedata.wind.speed,
+          sunrise: onlinedata.sys.sunrise,
+          sunset: onlinedata.sys.sunset,
         },
       });
       console.log(onlinedata)
@@ -97,6 +116,8 @@ export default function Main() {
             Icon: onlinedata.weather[0].icon,
             Country: onlinedata.sys.country,
             wind: onlinedata.wind.speed,
+            sunrise: onlinedata.sys.sunrise,
+            sunset: onlinedata.sys.sunset,
           },
         });
 
@@ -111,7 +132,7 @@ export default function Main() {
 
   useEffect(() => {
     defaultData();
-  });
+  },[]);
 
 
   return (
@@ -158,10 +179,18 @@ export default function Main() {
             <img src={windi} alt="" />
             <h4 className="app__wind">Wind Speed: {Math.trunc(wind * 3.6)} km/h</h4>
           </div>
+          <div className="item item5">
+            <img src={sunriseico} alt="" className="sun" />
+            <h4 className="app__wind">{formatSunrise()} AM</h4>
+          </div>
+          <div className="item item5">
+            <img src={sunsetico} alt="" className="sun" />
+            <h4 className="app__wind">{formatSunset()} PM</h4>
+          </div>
         </div>
-        <div className="date-time">
-          <h4 className="app__date">Date: {currentDate}</h4>
-        </div>
+          <div className="date-time">
+            <h4 className="app__date">Date: {currentDate}</h4>
+          </div>
       </div>
     </div>
   );
